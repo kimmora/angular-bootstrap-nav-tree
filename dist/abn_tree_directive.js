@@ -307,6 +307,17 @@
                 tree.add_branch(null, new_branch);
                 return new_branch;
               };
+              tree.remove_branch = function(branch) {
+                var parent;
+                parent = tree.get_parent_branch(branch);
+                if (parent != null) {
+                  parent.children.splice(parent.children.indexOf(branch), 1);
+                  return parent;
+                } else {
+                  scope.treeData.splice(scope.treeData.indexOf(branch), 1);
+                  return tree.get_first_branch;
+                }
+              };
               tree.expand_branch = function(b) {
                 if (b == null) {
                   b = tree.get_selected_branch();

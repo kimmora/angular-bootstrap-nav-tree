@@ -330,6 +330,15 @@ module.directive 'abnTree',['$timeout',($timeout)->
           tree.add_branch null, new_branch
           new_branch
 
+        tree.remove_branch = (branch)->
+          parent = tree.get_parent_branch(branch)
+          if parent?
+            parent.children.splice parent.children.indexOf(branch), 1
+            parent
+          else
+            scope.treeData.splice scope.treeData.indexOf(branch), 1
+            tree.get_first_branch
+
         tree.expand_branch = (b)->
           if not b?
             b = tree.get_selected_branch()
