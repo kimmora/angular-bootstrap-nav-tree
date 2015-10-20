@@ -171,7 +171,6 @@ module.directive 'abnTree',['$timeout',($timeout)->
       for_each_branch (b,level)->
         if not b.uid
           b.uid = ""+Math.random()
-      console.log 'UIDs are set.'
 
 
       # set all parents:
@@ -264,7 +263,6 @@ module.directive 'abnTree',['$timeout',($timeout)->
     # expand to the proper level
     #
     n = scope.treeData.length
-    console.log 'num root branches = '+n
     for_each_branch (b,level)->
       b.level = level
       b.expanded = b.level < expand_level
