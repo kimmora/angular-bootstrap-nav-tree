@@ -323,7 +323,6 @@ module.directive 'abnTree',['$timeout',($timeout)->
         tree.add_branch = (parent,new_branch)->
           if parent?
             parent.children.push new_branch
-            parent.expanded = true
           else
             scope.treeData.push new_branch
           #tree.select new_branch

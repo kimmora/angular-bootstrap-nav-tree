@@ -297,7 +297,6 @@
               tree.add_branch = function(parent, new_branch) {
                 if (parent != null) {
                   parent.children.push(new_branch);
-                  parent.expanded = true;
                 } else {
                   scope.treeData.push(new_branch);
                 }
