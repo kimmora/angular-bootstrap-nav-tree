@@ -323,7 +323,7 @@
                 } else {
                   scope.treeData[scope.treeData.indexOf(old_branch)] = new_branch;
                 }
-                if (old_branch != null ? old_branch : old_branch = tree.get_selected_branch()) {
+                if (old_branch === tree.get_selected_branch()) {
                   select_branch(new_branch);
                 }
                 return new_branch;
