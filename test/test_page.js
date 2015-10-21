@@ -150,10 +150,21 @@
         return tree.expand_all();
       }, 1000);
     };
-    return $scope.try_adding_a_branch = function() {
+    $scope.try_adding_a_branch = function() {
       var b;
       b = tree.get_selected_branch();
       return tree.add_branch(b, {
+        label: 'New Branch',
+        data: {
+          something: 42,
+          "else": 43
+        }
+      });
+    };
+    return $scope.try_replacing_a_branch = function() {
+      var b;
+      b = tree.get_selected_branch();
+      return tree.replace_branch(tree.get_parent_branch(b), b, {
         label: 'New Branch',
         data: {
           something: 42,

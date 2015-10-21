@@ -187,4 +187,10 @@ app.controller 'AbnTestController',($scope,$timeout)->
         something:42
         else:43
 
-
+  $scope.try_replacing_a_branch = ->
+    b = tree.get_selected_branch()
+    tree.replace_branch(tree.get_parent_branch(b), b,
+      label:'New Branch'
+      data:
+        something:42
+        else:43)

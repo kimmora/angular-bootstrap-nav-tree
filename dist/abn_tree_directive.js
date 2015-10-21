@@ -317,6 +317,17 @@
                   return tree.get_first_branch;
                 }
               };
+              tree.replace_branch = function(parent, old_branch, new_branch) {
+                if (parent != null) {
+                  parent.children[parent.children.indexOf(old_branch)] = new_branch;
+                } else {
+                  scope.treeData[scope.treeData.indexOf(old_branch)] = new_branch;
+                }
+                if (old_branch != null ? old_branch : old_branch = tree.get_selected_branch()) {
+                  select_branch(new_branch);
+                }
+                return new_branch;
+              };
               tree.expand_branch = function(b) {
                 if (b == null) {
                   b = tree.get_selected_branch();

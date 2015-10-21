@@ -338,6 +338,15 @@ module.directive 'abnTree',['$timeout',($timeout)->
             scope.treeData.splice scope.treeData.indexOf(branch), 1
             tree.get_first_branch
 
+        tree.replace_branch = (parent,old_branch,new_branch)->
+          if parent?
+            parent.children[parent.children.indexOf(old_branch)] =  new_branch
+          else
+            scope.treeData[scope.treeData.indexOf(old_branch)] = new_branch
+          if old_branch ?= tree.get_selected_branch()
+            select_branch(new_branch)
+          new_branch
+
         tree.expand_branch = (b)->
           if not b?
             b = tree.get_selected_branch()
