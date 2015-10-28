@@ -61,6 +61,9 @@
                 <button ng-click="my_tree.collapse_all()" class="btn btn-default btn-sm">Collapse All</button>
                 <hr>
                 <button ng-click="try_adding_a_branch()" class="btn btn-default btn-sm">Add Branch</button>
+                <button ng-click="try_adding_a_branch_to_index(input_index)" ng-disabled="!input_index &amp;&amp; input_index !== 0" class="btn btn-default btn-sm">Add Branch to Index</button>
+                <input type="number" ng-model="input_index" value="0">
+                <hr>
                 <button ng-click="my_tree.remove_branch(my_tree.get_selected_branch())" class="btn btn-default btn-sm">Remove Branch</button>
                 <button ng-click="try_replacing_a_branch()" class="btn btn-default btn-sm">Replace Branch</button>
               </td>

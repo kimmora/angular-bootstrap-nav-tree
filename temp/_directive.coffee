@@ -328,6 +328,13 @@ module.directive 'abnTree',['$timeout',($timeout)->
           #tree.select new_branch
           new_branch
 
+        tree.add_branch_to_index = (parent,new_branch,index)->
+          if parent?
+            parent.children.splice index,0,new_branch
+          else
+            scope.treeData.splice index,0,new_branch
+          new_branch
+
         tree.add_root_branch = (new_branch)->
           tree.add_branch null, new_branch
           new_branch

@@ -150,6 +150,18 @@ html(ng-app='AbnTest')
 									) Add Branch
 
 								button.btn.btn-default.btn-sm(
+									ng-click='try_adding_a_branch_to_index(input_index)'
+									ng-disabled='!input_index && input_index !== 0'
+									) Add Branch to Index
+
+								input(
+									type='number'
+									ng-model='input_index'
+									value=0
+									) Index
+
+								hr
+								button.btn.btn-default.btn-sm(
 									ng-click='my_tree.remove_branch(my_tree.get_selected_branch())'
 									) Remove Branch
 

@@ -302,6 +302,14 @@
                 }
                 return new_branch;
               };
+              tree.add_branch_to_index = function(parent, new_branch, index) {
+                if (parent != null) {
+                  parent.children.splice(index, 0, new_branch);
+                } else {
+                  scope.treeData.splice(index, 0, new_branch);
+                }
+                return new_branch;
+              };
               tree.add_root_branch = function(new_branch) {
                 tree.add_branch(null, new_branch);
                 return new_branch;

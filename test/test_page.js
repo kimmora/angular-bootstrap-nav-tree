@@ -10,7 +10,7 @@
   app = angular.module('AbnTest', deps);
 
   app.controller('AbnTestController', function($scope, $timeout) {
-    var apple_selected, tree, treedata_avm, treedata_geography;
+    var apple_selected, new_branch_counter, tree, treedata_avm, treedata_geography;
     $scope.my_tree_handler = function(branch) {
       var _ref;
       $scope.output = "You selected: " + branch.label;
@@ -128,6 +128,7 @@
         ]
       }
     ];
+    new_branch_counter = 1;
     $scope.my_data = treedata_avm;
     $scope.try_changing_the_tree_data = function() {
       if ($scope.my_data === treedata_avm) {
@@ -154,18 +155,29 @@
       var b;
       b = tree.get_selected_branch();
       return tree.add_branch(b, {
-        label: 'New Branch',
+        label: 'New Branch ' + new_branch_counter++,
         data: {
           something: 42,
           "else": 43
         }
       });
     };
+    $scope.try_adding_a_branch_to_index = function(index) {
+      var b;
+      b = tree.get_selected_branch();
+      return tree.add_branch_to_index(b, {
+        label: 'New Branch ' + new_branch_counter++,
+        data: {
+          something: 42,
+          "else": 43
+        }
+      }, index);
+    };
     return $scope.try_replacing_a_branch = function() {
       var b;
       b = tree.get_selected_branch();
       return tree.replace_branch(tree.get_parent_branch(b), b, {
-        label: 'New Branch',
+        label: 'New Branch ' + new_branch_counter++,
         data: {
           something: 42,
           "else": 43

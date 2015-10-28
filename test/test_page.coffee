@@ -147,6 +147,7 @@ app.controller 'AbnTestController',($scope,$timeout)->
     ]
   ]
 
+  new_branch_counter = 1
 
   $scope.my_data = treedata_avm
   $scope.try_changing_the_tree_data = ()->
@@ -182,15 +183,24 @@ app.controller 'AbnTestController',($scope,$timeout)->
   $scope.try_adding_a_branch = ->
     b = tree.get_selected_branch()
     tree.add_branch b,
-      label:'New Branch'
+      label:'New Branch ' + new_branch_counter++
       data:
         something:42
         else:43
 
+  $scope.try_adding_a_branch_to_index = (index)->
+    b = tree.get_selected_branch()
+    tree.add_branch_to_index b,
+      label:'New Branch ' + new_branch_counter++
+      data:
+        something:42
+        else:43
+      , index
+
   $scope.try_replacing_a_branch = ->
     b = tree.get_selected_branch()
     tree.replace_branch(tree.get_parent_branch(b), b,
-      label:'New Branch'
+      label:'New Branch ' + new_branch_counter++
       data:
         something:42
         else:43)
